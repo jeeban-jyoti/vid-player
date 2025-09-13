@@ -41,7 +41,7 @@ export default function App() {
               onClick={() => setCurrentFileId(id)}
             >
               <img src={buildThumbnailUrl(id)} alt={`Video ${idx + 1}`} className="thumbnail" />
-              <p>Video {idx + 1}</p>
+              <p>Video {idx + 1} lalalala</p>
             </div>
           ))}
         </div>
