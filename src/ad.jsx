@@ -1,30 +1,34 @@
 import React, { useEffect, useRef } from "react";
 
-export default function AdsterraAd() {
+export default function AdsterraAd({ id, height = 300, width = 160, src }) {
   const adRef = useRef(null);
 
   useEffect(() => {
-    // First, create the global `atOptions` object
+    if (!id || !src) return;
+
+    // Create a unique atOptions object for this instance
     window.atOptions = {
-      key: "a5b8814324665b8d221ed341ba486cc9",
+      key: id,
       format: "iframe",
-      height: 300,
-      width: 160,
+      height,
+      width,
       params: {},
     };
 
-    // Then load the script
+    // Load the script
     const script = document.createElement("script");
-    script.src = "//www.highperformanceformat.com/a5b8814324665b8d221ed341ba486cc9/invoke.js";
+    script.src = `${src}/${id}/invoke.js`;
     script.async = true;
 
     if (adRef.current) adRef.current.appendChild(script);
 
     // Cleanup on unmount
     return () => {
-      if (adRef.current) adRef.current.removeChild(script);
+      if (adRef.current && script.parentNode === adRef.current) {
+        adRef.current.removeChild(script);
+      }
     };
-  }, []);
+  }, [id, height, width, src]);
 
-  return <div ref={adRef} style={{ width: 160, height: 300 }} />;
+  return <div ref={adRef} style={{ width, height }} />;
 }

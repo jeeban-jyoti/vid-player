@@ -69,6 +69,27 @@ body, html {
   border-color: #1e90ff;
 }
 
+/* Flex row for main content */
+.main-row {
+  display: flex;
+  align-items: flex-start; /* keep top aligned */
+}
+
+/* Right side ad beside video+playlist */
+.side-ad {
+  margin-left: 20px; /* small gap from video+playlist */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Footer ad */
+.footer-ad {
+  margin: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
 /* Tablet and mobile: top full width with margin from top */
 @media (max-width: 1024px) {
   .video-container {
@@ -77,3 +98,4 @@ body, html {
     margin: 20px auto 0 auto; /* top margin, centered horizontally */
   }
 }
+
