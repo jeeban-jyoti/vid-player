@@ -53,20 +53,32 @@ export default function App() {
           </div>
         </div>
 
-        {/* Ad to the right of video+playlist */}
-        <script async="async" data-cfasync="false" src="//pl27634790.revenuecpmgate.com/dcc3ebca91bc0aeb8a4dc5a0a9d6da3e/invoke.js"></script>
-        <div id="container-dcc3ebca91bc0aeb8a4dc5a0a9d6da3e"></div>
-        
+        {/* Right side ads (go below player on smaller screens) */}
+        <div className="side-ad">
+          <script
+            async="async"
+            data-cfasync="false"
+            src="//pl27634790.revenuecpmgate.com/dcc3ebca91bc0aeb8a4dc5a0a9d6da3e/invoke.js"
+          ></script>
+          <div id="container-dcc3ebca91bc0aeb8a4dc5a0a9d6da3e">
+            <AdsterraAd
+              id="a5b8814324665b8d221ed341ba486cc9"
+              height={300}
+              width={160}
+              src="//www.highperformanceformat.com"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Footer ad */}
       <div className="footer-ad">
         <AdsterraAd
-            id="ee35760e3e3454fad6da77e64ce83346"
-            height={60}
-            width={480}
-            src="//www.highperformanceformat.com"
-          />
+          id="ee35760e3e3454fad6da77e64ce83346"
+          height={60}
+          width={480}
+          src="//www.highperformanceformat.com"
+        />
       </div>
     </div>
   );
